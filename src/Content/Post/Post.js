@@ -8,6 +8,7 @@ function Post(props){
     const {usertoken} = props
     const [loading,setloading] = useState(false)
     const [posted, setposted] = useState(false) 
+    const [imageurl,setimageurl] = useState('')
 
     const handleFileChange = (e) => {
         setposted(false)
@@ -34,6 +35,7 @@ function Post(props){
             canvas.toBlob((blob) => {
               const croppedImageFile = new File([blob], 'cropped_image.jpg', { type: 'image/jpeg' });
               setImage(croppedImageFile); // Set the cropped image file to the 'image' state
+              handlePost1(croppedImageFile);
             }, 'image/jpeg', 0.8); // Adjust quality if needed
           };
         };
@@ -41,6 +43,33 @@ function Post(props){
         if (file) {
           reader.readAsDataURL(file);
         }
+      };
+
+
+      const handlePost1 = async (file) => {
+        console.log('here uploading image')
+          try {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', 'zjp16bzj'); // Replace with your Cloudinary upload preset
+    
+            // Upload cropped image directly to Cloudinary
+            const response = await axios.post(
+              'https://api.cloudinary.com/v1_1/dfjulowfc/image/upload',
+              formData
+            );
+    
+            // Handle the Cloudinary response here (e.g., show success message)
+            setimageurl(response.data.secure_url)
+            
+    
+            // Additional actions after successful upload
+    
+          } catch (error) {
+            console.error('Error uploading image:', error);
+            // Handle error (e.g., show error message)
+          }
+        
       };
 
 
@@ -57,12 +86,11 @@ function Post(props){
     const handlePost = async(e)=>{
         e.preventDefault();
         setloading(true)
-        const formData = new FormData();
         const Title = document.getElementById('Title').value || ''
-        formData.append('image',image);
-        formData.append('textData', Title);
-        formData.append('token', JSON.stringify(usertoken));
-        await axios.post('https://instaapp-blue.vercel.app/posttoinsta', formData, { headers: {'Content-Type': 'multipart/form-data', }, })
+        const formData= {'image':imageurl,
+                    'textData': Title,
+                    'token': JSON.stringify(usertoken)}
+        await axios.post('http://localhost:3030/posttoinsta', formData)
         .then((res)=>{
             setloading(false)
             setposted(true)
