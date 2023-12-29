@@ -91,7 +91,7 @@ app.post('/posttoinsta',async(req,res)=>{
 
       
     //    await posttoinsta(await validate(token.token, token.pass), textdata, file);     
-    //   res.send() 
+      res.send() 
 })
 
 
