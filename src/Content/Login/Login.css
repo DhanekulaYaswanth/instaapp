@@ -1,0 +1,162 @@
+.LoginContainer{
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: max-content;
+    height: max-content;
+    border-radius: 20px;
+    border: 3px solid rgba(247, 247, 247, 0.578);
+    padding: 30px;
+    margin-top: 20px;
+  }
+  
+  
+  .heading{
+    height: max-content;
+    width: max-content;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #fff;
+  }
+  
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+  }
+  
+  
+  .fields{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  
+  
+  .fields>label{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.801);
+  }
+  
+  
+  .fields>[type="text"],.fields>[type="password"]{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 252, 252, 0.559);
+    background-color: transparent;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  
+  .fields>[type="text"]:focus,.fields>[type="password"]:focus{
+    outline: none;
+    border-color: rgb(255, 255, 255);
+  }
+  
+  .Login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+  }
+  
+
+  .Login:hover{
+    background-color: rgb(9, 9, 46);
+  }
+
+
+
+  .loading{
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+
+  .load1,.load2,.load3,.load4{
+    display: flex;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+  }
+
+
+  .load1{
+    animation: blink 1.4s infinite ;
+  }
+
+
+  .load2{
+    animation: blink 1.4s infinite ;
+    animation-delay: .3s;
+  }
+  .load3{
+    animation: blink 1.4s infinite ;
+    animation-delay: .6s;
+  }
+
+  .load4{
+    animation: blink 1.4s infinite ;
+    animation-delay: .9s;
+  }
+
+  
+  @keyframes blink {
+    0%{
+      width: 0px;
+      height: 0px;
+      opacity: 0.2;
+    }
+   50%{
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+    }
+    100%{
+      width: 0px;
+      height: 0px;
+      opacity: 0.1;
+    }
+  }
+
+
+  .error{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-shadow: 0px 0px 10px red;
+    width: 300px;
+    font-weight: 500;
+  }
+
+
+
+  .logout{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
