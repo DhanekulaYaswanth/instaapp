@@ -90,8 +90,8 @@ app.post('/posttoinsta',async(req,res)=>{
       console.log(file)
 
       
-       await posttoinsta(await validate(token.token, token.pass), textdata, file);     
-      res.send() 
+    //    await posttoinsta(await validate(token.token, token.pass), textdata, file);     
+    //   res.send() 
 })
 
 
