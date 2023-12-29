@@ -24,6 +24,7 @@ const validate = async(username,pass)=>{
     const ig = new IgApiClient();
     ig.state.generateDevice(username);
     console.log('validating...')
+    console.log(username,pass)
     try{
         await ig.account.login(username,pass);
         t=ig;
