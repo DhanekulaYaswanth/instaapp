@@ -91,7 +91,7 @@ function Post(props){
                     'textData': Title,
                     'token': JSON.stringify(usertoken)}
                     console.log(formData)
-        await axios.post('http://instaapp-lac.vercel.app/posttoinsta', formData)
+        await axios.post('https://instaapp-lac.vercel.app/posttoinsta', formData)
         .then((res)=>{
             setloading(false)
             setposted(true)
