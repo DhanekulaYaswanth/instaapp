@@ -62,7 +62,7 @@ function Post(props){
         formData.append('image',image);
         formData.append('textData', Title);
         formData.append('token', JSON.stringify(usertoken));
-        await axios.post('http://localhost:3030/posttoinsta', formData, { headers: {'Content-Type': 'multipart/form-data', }, })
+        await axios.post('https://instaapp-blue.vercel.app/posttoinsta', formData, { headers: {'Content-Type': 'multipart/form-data', }, })
         .then((res)=>{
             setloading(false)
             setposted(true)
